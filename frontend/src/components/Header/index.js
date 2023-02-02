@@ -1,13 +1,14 @@
 import "./header.css";
+import { Link } from "react-router-dom";
 
 function Header({ title }) {
   return (
     <header>
       <h1 className="titulo">{title}</h1>
       <nav>
-        <a href="#">Usuários</a>
-        <a href="#">Cadastrar usuário</a>
-        <a href="#">Cadastrar endereço</a>
+        <Link to="/usuarios">Usuários</Link>
+        <Link to="/usuarios/cadastrar">Cadastrar usuário</Link>
+        <Link to="/enderecos/cadastrar">Cadastrar endereço</Link>
       </nav>
     </header>
   );
