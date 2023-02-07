@@ -1,4 +1,5 @@
 const database = require("../database/models");
+const jwt = require("jsonwebtoken");
 
 const usuariosController = {
   create: async (req, res) => {
@@ -39,6 +40,31 @@ const usuariosController = {
       },
     });
     res.send("ok");
+  },
+  login: async (req, res) => {
+    const { email, password } = req.body;
+
+    const user = await database.usuarios.findOne({
+      where: {
+        email,
+        senha: password,
+      },
+    });
+
+    if (!user) {
+      return res.status(401).json({ error: "Credenciais inválidas" });
+    }
+
+    const token = jwt.sign(
+      {
+        id: user.idUsuario,
+        name: user.nome,
+        email: user.email,
+      },
+      "MINHA_CHAVE_ULTRA_SECRETA"
+    );
+
+    return res.json({ token });
   },
 };
 module.exports = usuariosController;

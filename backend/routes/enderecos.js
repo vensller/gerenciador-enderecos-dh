@@ -1,12 +1,12 @@
-var express = require('express');
-var router = express.Router();
-const enderecosController = require("../controllers/enderecosController")
-
+const express = require("express");
+const router = express.Router();
+const enderecosController = require("../controllers/enderecosController");
+const authMiddleware = require("../middlewares/auth");
 
 /* GET home page. */
-router.get('/', enderecosController.read)
-router.post('/', enderecosController.create)
-router.delete('/:id', enderecosController.delete)
-router.put('/:id', enderecosController.update)
+router.get("/", authMiddleware.verifyToken, enderecosController.read);
+router.post("/", authMiddleware.verifyToken, enderecosController.create);
+router.delete("/:id", authMiddleware.verifyToken, enderecosController.delete);
+router.put("/:id", authMiddleware.verifyToken, enderecosController.update);
 
 module.exports = router;
