@@ -1,10 +1,12 @@
 import "./login.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "../../services/api";
 
 function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const navigate = useNavigate();
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -16,6 +18,7 @@ function Login() {
       });
       const { token } = data;
       localStorage.setItem("token", token);
+      navigate("/usuarios");
     } catch (error) {
       if (error.response?.data) {
         alert(error.response.data.error);

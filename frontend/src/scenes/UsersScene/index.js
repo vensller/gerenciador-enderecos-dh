@@ -22,7 +22,12 @@ function UsersScene() {
       <main>
         <section className="info-usuario">
           {usersList.map((user) => (
-            <UserCard id={user.idUsuario} name={user.nome} email={user.email} />
+            <UserCard
+              key={user.idUsuario}
+              id={user.idUsuario}
+              name={user.nome}
+              email={user.email}
+            />
           ))}
         </section>
       </main>

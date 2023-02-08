@@ -3,12 +3,16 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UserRegisterScene from "./scenes/UserRegisterScene";
 import UsersScene from "./scenes/UsersScene";
 import Login from "./scenes/Login";
+import PrivateRoutes from "./routes/Route";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/usuarios" exact={true} element={<UsersScene />} />
+        <Route element={<PrivateRoutes />}>
+          <Route path="/usuarios" exact={true} element={<UsersScene />} />
+        </Route>
+
         <Route
           path="/usuarios/cadastrar"
           exact={true}
