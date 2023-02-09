@@ -6,6 +6,7 @@ function UserCard({ id, name, email }) {
       <span>Id: {id}</span>
       <span>Nome: {name}</span>
       <span>Email: {email}</span>
+      <button>Alterar</button>
     </div>
   );
 }

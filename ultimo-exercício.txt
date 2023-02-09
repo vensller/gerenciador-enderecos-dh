@@ -1,0 +1,15 @@
+- Chamar método para Remover um Usuário (somente o usuário que está logado pode 
+  remover ele mesmo, não é possível remover outro usuário)
+  Sugestão: alterar o UserCard
+
+- Chamar método para Remover um Endereço (remover somente endereços do usuário logado)
+  Sugestão: alterar o AddressCard
+
+- Criar (página/modal/trocar span por input) para Alterar um usuário 
+  (só pode alterar o usuário logado)
+
+- Criar (página/modal/trocar span por input) para Alterar um endereço 
+  (só pode alterar endereços do usuário logado)
+
+- Chamar método da API para alterar usuário
+- Chamar método da API para alterar endereço
